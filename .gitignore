@@ -1,4 +1,5 @@
 # 此为注释 – 将被 Git 忽略
  *.log    # 忽略所有 .log 结尾的文件
  *.class    # 忽略所有 .log 结尾的文件
-test/   
+test/
+build/      
