@@ -149,5 +149,8 @@ public class UserInfoController extends AbstractController{
 		return JSON.toJSONString(flag);
 	}
 	
-	
+	@RequestMapping("/toUpdatePwd")
+	public String toUpdatePwd(){
+		return "user/user_reset_pwd";
+	}
 }

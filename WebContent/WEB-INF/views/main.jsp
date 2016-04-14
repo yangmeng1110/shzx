@@ -42,7 +42,7 @@
 			<ul>
 				<li>欢迎您！</li>
 				<li><a href="">${user.realName }</a></li>
-				<li><a href="">修改密码</a></li>
+				<li><a href="javascript:click_update_pwd();">修改密码</a></li>
 				<li><a href="">设置</a></li>
 				<li><a href="${pageContext.request.contextPath }/login/logOut">退出</a></li>
 			</ul>
@@ -91,4 +91,15 @@
 		</p>
 	</div>
 </body>
+<script type="text/javascript">
+	function click_update_pwd(){
+		Dialog.open({
+				Title:'修改密码',
+				URL:'${pageContext.request.contextPath}/user/toUpdatePwd',
+				Drag:false,
+				Height:200,
+				Width:400
+		});
+	}
+</script>
 </html>
