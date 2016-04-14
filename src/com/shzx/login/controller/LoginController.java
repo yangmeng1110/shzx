@@ -16,7 +16,11 @@ import com.shzx.common.SysContants;
 import com.shzx.user.entity.UserInfo;
 import com.shzx.user.service.UserInfoService;
 import com.shzx.util.MD5Util;
-
+/**
+ * 登录Controller
+ * @author Administrator
+ *
+ */
 @Controller
 @RequestMapping(value="/login")
 public class LoginController extends AbstractController{
