@@ -106,7 +106,7 @@ function click_search(){
 	queryParams.userName = $("#userName").val();
 	queryParams.realName = $("#realName").val();
 	$("#data").datagrid('options').queryParams = queryParams; 
-	$("#data").datagrid('reload');
+	loadGrid();
 }
 
 </script>
