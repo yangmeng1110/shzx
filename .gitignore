@@ -2,4 +2,10 @@
  *.log    # 忽略所有 .log 结尾的文件
  *.class    # 忽略所有 .log 结尾的文件
 test/
-build/      
+build/
+.classpath
+.project
+.settings
+.gitignore
+
+      
