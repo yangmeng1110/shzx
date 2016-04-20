@@ -4,10 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript">
-	window.location.href = "${pageContext.request.contextPath}/login/forwardLogin";
-</script>
 </head>
 <body>
-</body>
+		<form action="${pageContext.request.contextPath}/login.jsp" name="MAINFORM" method="POST">
+		</form>
+	</body>
+	<script type="text/javascript">
+	if(window.parent){
+		document.MAINFORM.target = "_parent";
+	}
+	document.MAINFORM.submit();
+	</script>
 </html>

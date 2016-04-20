@@ -49,7 +49,7 @@ public class UserInfoController extends AbstractController{
 			totalCount = userInfoService.findCount(parseReqToSearchCondition(searchParams, request));
 			list = userInfoService.findByPage(parseReqToSearchCondition(searchParams, request));
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("查询用户列表失败，失败信息："+e.getMessage());
 		}
 		Map<String,Object> resultMap = new HashMap<String, Object>();
 //		resultMap.put(SysContants.REQUEST_RESULT_LIST, list);
@@ -138,9 +138,9 @@ public class UserInfoController extends AbstractController{
 		try {
 			UserInfo userInfo = userInfoService.findByUserName(userName);
 			if(userInfo != null){
-				flag = true;
-			}else{
 				flag = false;
+			}else{
+				flag = true;
 			}
 		} catch (Exception e) {
 			flag = false;

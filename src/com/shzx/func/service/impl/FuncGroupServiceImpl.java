@@ -20,4 +20,9 @@ public class FuncGroupServiceImpl implements FuncGroupService {
 		return funcGroupDAO.findListByGroupId(groupId);
 	}
 
+	@Override
+	public List<FuncGroup> findListByFuncId(String funcId) {
+		return funcGroupDAO.findListByFuncId(funcId);
+	}
+
 }

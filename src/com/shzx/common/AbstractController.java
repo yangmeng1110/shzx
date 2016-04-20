@@ -11,7 +11,7 @@ import org.apache.commons.logging.LogFactory;
 public class AbstractController {
 
 	/** 使用匿名内部类动态获取类名 */
-	public static final Log log = LogFactory.getLog(new Object() {
+	public static final Log logger = LogFactory.getLog(new Object() {
 		public String getClassName() {
 			String className = this.getClass().getName();
 			return className;

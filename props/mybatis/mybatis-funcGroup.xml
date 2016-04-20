@@ -8,5 +8,12 @@
   			FROM FUNC_GROUP
   		WHERE ID = #{id,jdbcType=VARCHAR}	
    </select>
-    
+   
+    <select id="selectFuncGroupByFuncId" resultType="funcGroup" parameterType="java.lang.String">
+   		SELECT 
+  			ID,GROUPNAME,GROUPURL,GROUPSORT,FUNCID
+  			FROM FUNC_GROUP
+  		WHERE FUNCID = #{funcId,jdbcType=VARCHAR}	
+   </select>
+   
 </mapper>

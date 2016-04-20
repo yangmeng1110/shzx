@@ -1,5 +1,6 @@
 package com.shzx.util;
 
+import java.util.Random;
 import java.util.UUID;
 
 /**
@@ -15,6 +16,9 @@ public class StringUtil {
 	 */
 	public static String getUuid(){
 		UUID uuid = UUID.randomUUID();
-		return uuid.toString();
+		return uuid.toString().replace("-", "");
+	}
+	public static void main(String[] args) {
+		System.out.println(getUuid());
 	}
 }

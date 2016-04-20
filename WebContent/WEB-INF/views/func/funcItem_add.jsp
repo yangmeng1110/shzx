@@ -4,25 +4,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>新增用户</title>
+<title>新增功能项</title>
 <%@include file="../include/global.jsp" %>
 </head>
 <body>
 	<form id="form1" action="">
 		<div style="margin-top: 5%;">
 			<div class="input-box">
-				<label for="userName" class="label">用户名：</label>
-				<input type="text" name="userName" class="input" id="userName"/>
+				<label for="funcName" class="label">名称：</label>
+				<input type="text" name="funcName" class="input" id="funcName"/>
 				<span class="error-text"  id="error"></span>
 			</div>
 			<div class="input-box">
-					<label for="realName" class="label">姓名：</label>
-					<input type="text" name="realName" class="input"/>
-					<span class="error-text"  id="error"></span>
-			</div>
-			<div class="input-box">
-					<label for="telephone" class="label">手机号：</label>
-					<input type="text" name="telephone" class="input"/>
+					<label for="funcSort" class="label">排序号：</label>
+					<input type="text" name="funcSort" class="input"/>
 					<span class="error-text"  id="error"></span>
 			</div>
 			<div class="input-box">
@@ -34,39 +29,33 @@
 	</form>
 </body>
 <script type="text/javascript">
-	jQuery.validator.addMethod("mobileValidate",function(value,element){
-		var regex= /^1[3|4|5|8][0-9]\d{8}$/; 
-		 return regex.test(value) || this.optional(element); 
-		},"手机号不合法");
 
 	$(function(){
 		$("#form1").validate({
 			rules:{
-				"userName":{required:true,
+				"funcName":{required:true,
 					remote:{
-						url:'${pageContext.request.contextPath}/user/validateUserName',
+						url:'${pageContext.request.contextPath}/funcItem/validateFuncName',
 						type:'post',
 						data:{
-							userName:function(){
-								return $("#userName").val();
+							funcName:function(){
+								return $("#funcName").val();
 							}
 						}
 					}	
 				},
-				"realName":{required:true,maxlength:5},
-				"telephone":{required:true,mobileValidate:true}
+				"funcSort":{required:true,maxlength:2,digits:true},
 			},
 			messages:{
-				"userName":{required:"不能为空!",remote:'用户名重复!'},
-				"realName":{required:"不能为空!",maxlength:"3个字以内!"},
-				"telephone":{required:"不能为空!"}				
+				"funcName":{required:"不能为空!",remote:'名称重复!'},
+				"funcSort":{required:"不能为空!",maxlength:"2个数字以内!",digits:'输入整数!'},
 			},
 			errorPlacement:function(error,element){
 				error.appendTo(element.parent().children("#error"))
 			},
 			submitHandler:function(form){
 				CommonAjaxJson(
-						'${pageContext.request.contextPath}/user/addUserInfo',
+						'${pageContext.request.contextPath}/funcItem/addFuncItem',
 						 $("#form1").serialize(), 
 						 function(data){
 							window.parent.frames[0].messageTip(data);
@@ -78,7 +67,6 @@
 	});
 	
   function click_submit(){
-	  
 		$("#form1").submit();
 	}
 </script>

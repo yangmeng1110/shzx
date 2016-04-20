@@ -9,4 +9,6 @@ public interface FuncGroupService {
 	public static final String BEAN_NAME = "funcGroupService";
 	
 	public List<FuncGroup> findListByGroupId(String groupId);
+	
+	public List<FuncGroup> findListByFuncId(String funcId);
 }

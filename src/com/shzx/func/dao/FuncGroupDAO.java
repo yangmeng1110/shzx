@@ -14,5 +14,7 @@ public class FuncGroupDAO extends AbstractDAO{
 		return findListByProperty("selectFuncGroupById", groupId.trim());
 	}
 
-	
+	public List<FuncGroup> findListByFuncId(String funcId) {
+		return findListByProperty("selectFuncGroupByFuncId", funcId.trim());
+	}
 }

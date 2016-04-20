@@ -9,4 +9,52 @@
   		WHERE ID = #{id,jdbcType=VARCHAR}	
    </select>
     
+    <select id="selectFuncItemByPage" parameterType="map" resultType="funcItem">
+    	SELECT 
+  			ID,FUNCNAME,FUNCSORT
+  			FROM FUNC_ITEM
+  			LIMIT #{page},#{pageSize}
+    </select>
+    
+    <select id="selectFuncItemCount" parameterType="map" resultType="java.lang.Long">
+    		SELECT 
+  				COUNT(*)
+  			FROM FUNC_ITEM
+    </select>
+    
+    <update id="updateFuncItem" parameterType="funcItem">
+    	UPDATE FUNC_ITEM SET
+    		<if test="funcName != null || funcName != ''">
+    			FUNCNAME = #{funcName,jdbcType=VARCHAR},
+    		</if>
+    		<if test="funcSort != null || funcSort != ''">
+    			FUNCSORT = #{funcSort,jdbcType=VARCHAR}
+    		</if>
+    	WHERE ID= #{id,jdbcType=VARCHAR}	
+    </update>
+    
+    <delete id="deleteFuncItem" parameterType="java.lang.String">
+    	DELETE FROM FUNC_ITEM 
+    	WHERE ID= #{id,jdbcType=VARCHAR}	
+    </delete>
+    
+     <insert id="insertFuncItem" parameterType="funcItem">
+		INSERT INTO FUNC_ITEM(
+				ID,
+				FUNCNAME,
+				FUNCSORT
+			)VALUES(
+				#{id,jdbcType=VARCHAR},
+				#{funcName,jdbcType=VARCHAR},
+				#{funcSort,jdbcType=VARCHAR}
+			)
+    </insert>
+    
+    <select id="selectFuncItemByName" parameterType="java.lang.String" resultType="funcItem">
+    		SELECT 
+  			ID,FUNCNAME,FUNCSORT
+  			FROM FUNC_ITEM
+  			WHERE FUNCNAME= #{funcName,jdbcType=VARCHAR}
+    </select>
+    
 </mapper>

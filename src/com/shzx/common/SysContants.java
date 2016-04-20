@@ -9,6 +9,8 @@ public class SysContants {
 	
 	public static final String RETURN_MSG_RIGHT_CODE = "1";
 	
+	public static final String RETURN_MSG_FAIL_CODE = "2";
+	
 	public static final String Token = "token";
 
 	
